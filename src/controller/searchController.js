@@ -59,4 +59,20 @@ app.post('/buscarEmpresa', async(req, resp) =>{
     }
 })
 
+
+  app.post("/", async (req, resp) => {
+    try {
+        let {area} = req.body;
+        console.log(area)
+        if(area){
+            let a = await db.infoc_atn_tb_empresa.findOne({like:{nm_ramo:area}})
+            resp.send(a)
+            return;
+        }
+      } catch (e) {
+          resp.send("Erro: " + e)
+      }
+  });
+
+
 export default app;
