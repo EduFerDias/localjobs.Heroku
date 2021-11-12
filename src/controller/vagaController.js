@@ -57,7 +57,7 @@ app.get('/:id', async (req, resp) => {
             return resp.send({ erro: 'Não a vagas nessa empresa' });
         
         let vaga = await
-            db.infoc_atn_tb_vagas.findOne({
+            db.infoc_atn_tb_vagas.findAll({
                 where: {
                     id_empresa: id.id_empresa
                 },
