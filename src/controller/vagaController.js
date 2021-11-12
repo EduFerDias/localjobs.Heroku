@@ -59,7 +59,7 @@ app.get('/:id', async (req, resp) => {
         let vaga = await
             db.infoc_atn_tb_vagas.findAll({
                 where: {
-                    id_empresa: id.id_empresa
+                    id_empresa:  req.params.id
                 },
                 order: [['id_empresa', 'desc']]
             });
